@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Hardware | A Comprehensive Guide</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@400;600&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #6366f1;
+            --accent: #ec4899;
+            --dark: #0a0e27;
+            --darker: #050816;
+            --light: #e0f2fe;
+            --gray: #94a3b8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: var(--light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+            padding: 2rem 0;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
+            }
+
+            to {
+                filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.8));
+            }
+        }
+
+        .subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary);
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(0, 212, 255, 0.1));
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .intro-section h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .intro-section p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--light);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Video Section */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+            background: var(--darker);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--gray);
+        }
+
+        .video-placeholder p {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            animation: expand 0.8s ease-out both;
+        }
+
+        @keyframes expand {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Timeline for History */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        @media (max-width: 1024px) {
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.05));
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+            border-left-color: var(--accent);
+        }
+
+        .timeline-item:hover::after {
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%);
+        }
+
+        .timeline-period {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .timeline-date {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .timeline-event {
+            font-size: 1rem;
+            color: var(--light);
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-contributor {
+            color: var(--gray);
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* Cards for Components, Technologies, Applications */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(0, 212, 255, 0.05));
+            border-radius: 20px;
+            padding: 1.8rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card>div:first-child {
+            flex-grow: 1;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+            transform: translate(25%, 25%);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+            border-color: var(--primary);
+        }
+
+        .card h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card p,
+        .card ul {
+            color: var(--light);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            font-size: 0.95rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.6rem;
+            position: relative;
+        }
+
+        .card li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        /* Challenge Cards */
+        .challenge-card {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(99, 102, 241, 0.05));
+            border-left: 4px solid var(--accent);
+        }
+
+        .challenge-card h3 {
+            color: var(--accent);
+        }
+
+        /* Future Trends */
+        .future-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(99, 102, 241, 0.05));
+            border-left: 4px solid var(--primary);
+        }
+
+        /* Content Box */
+        .content-box {
+            background: rgba(99, 102, 241, 0.05);
+            border-radius: 15px;
+            padding: 1.2rem;
+            margin-top: auto;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .content-box p {
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .content-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(0, 212, 255, 0.05));
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(0, 212, 255, 0.1));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .image-placeholder p:first-child {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-caption {
+            padding: 1.2rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.05));
+            border-top: 2px solid rgba(0, 212, 255, 0.3);
+            margin-top: 5rem;
+        }
+
+        footer p {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .credits {
+            font-family: 'Orbitron', monospace;
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .intro-section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--secondary), var(--accent));
+        }
+
+        /* Add this CSS to make all images consistent and perfectly aligned */
+
+        /* Technology Section Images - Make all card images same size */
+        #technologies .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Peripheral Devices Images - Consistent height for icon grid */
+        #components .card img {
+            width: 100%;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        /* Gallery Images - Consistent aspect ratio */
+        #gallery .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        /* Ensure all image containers have consistent spacing */
+        #technologies .card>div:first-child>div,
+        #components .card>div {
+            margin-bottom: 1rem;
+        }
+
+        /* Make sure grid layouts are aligned */
+        #technologies .card>div:first-child>div[style*="grid"] {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 0.5rem !important;
+            align-items: center;
+        }
+
+        /* ===== SCROLL REVEAL SYSTEM ===== */
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger cards inside revealed section */
+        .reveal.active .card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active .card:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+
+        .reveal.active .card:nth-child(2) {
+            transition-delay: 0.35s;
+        }
+
+        .reveal.active .card:nth-child(3) {
+            transition-delay: 0.5s;
+        }
+
+        .reveal.active .card:nth-child(4) {
+            transition-delay: 0.65s;
+        }
+
+        .reveal.active .card:nth-child(5) {
+            transition-delay: 0.8s;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Computer Hardware</h1>
+            <p class="subtitle">A Comprehensive Guide</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Introduction Section -->
+        <section class="intro-section">
+            <h2>What is Computer Hardware?</h2>
+            <p>Computer hardware refers to the physical components of a computer system that work together to perform
+                tasks. This includes the processor (CPU), which executes instructions; memory (RAM), which temporarily
+                stores data for quick access; storage devices like hard drives or SSDs for long-term data storage; input
+                devices such as keyboards and mice to enter information; output devices like monitors and printers to
+                display results; and peripheral components such as graphic cards or external drives that enhance
+                functionality. Together, these parts form the foundation of a computer, enabling it to run software,
+                process data, and interact with users.</p>
+
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <p>YouTube Video Placeholder</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">To add your video:</p>
+                    <p style="font-size: 0.85rem;">1. Get your YouTube video URL (e.g.,
+                        https://www.youtube.com/watch?v=VIDEO_ID)</p>
+                    <p style="font-size: 0.85rem;">2. Replace VIDEO_ID below with your actual video ID</p>
+                    <p style="font-size: 0.85rem;">3. Remove the comment tags around the iframe</p>
+                </div>
+                <!-- 
+                To add your YouTube video:
+                1. Copy your YouTube video URL: https://www.youtube.com/watch?v=VIDEO_ID
+                2. Take only the VIDEO_ID part (the text after "v=")
+                3. Replace YOUR_VIDEO_ID below with your video ID
+                4. Remove the comment tags (the lines with arrow brackets and dashes)
+                
+                Example: If your URL is https://www.youtube.com/watch?v=dQw4w9WgXcQ
+                Then replace YOUR_VIDEO_ID with: dQw4w9WgXcQ
+                -->
+                <iframe src="https://www.youtube.com/embed/ICbgrmoB5ZE" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section id="history">
+            <h2 class="section-title">History of Computer Hardware</h2>
+
+            <div class="timeline">
+                <!-- Column 1: Ancient & Mechanical Computing -->
+                <div class="timeline-item">
+                    <h3 class="timeline-period">Ancient & Mechanical Computing</h3>
+                    <p style="font-size: 0.9rem; color: var(--gray); margin-bottom: 1rem;">2400 BCE – 1837</p>
+
+                    <div class="timeline-date">2400 BCE – 300 BCE</div>
+                    <p class="timeline-event"><strong>Use of the Abacus</strong></p>
+                    <p class="timeline-contributor">Ancient civilizations – Early tool for arithmetic</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">1642</div>
+                    <p class="timeline-event"><strong>Invention of Mechanical Calculator</strong></p>
+                    <p class="timeline-contributor">Blaise Pascal – Created Pascaline</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">1673</div>
+                    <p class="timeline-event"><strong>Advanced Mechanical Calculator</strong></p>
+                    <p class="timeline-contributor">Gottfried Wilhelm Leibniz – Developed Stepped Reckoner</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">1837</div>
+                    <p class="timeline-event"><strong>Concept of Programmable Computer</strong></p>
+                    <p class="timeline-contributor">Charles Babbage – Designed Analytical Engine</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">1843</div>
+                    <p class="timeline-event"><strong>First Computer Program</strong></p>
+                    <p class="timeline-contributor">Ada Lovelace – Wrote algorithm for Analytical Engine</p>
+                </div>
+
+                <!-- Column 2: Theoretical & Early Electronic Era -->
+                <div class="timeline-item">
+                    <h3 class="timeline-period">Theoretical & Early Electronic Era</h3>
+                    <p style="font-size: 0.9rem; color: var(--gray); margin-bottom: 1rem;">1936 – 1956</p>
+
+                    <div class="timeline-date">1936</div>
+                    <p class="timeline-event"><strong>Theory of Computation</strong></p>
+                    <p class="timeline-contributor">Alan Turing – Proposed Turing Machine</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">1946</div>
+                    <p class="timeline-event"><strong>First Electronic Digital Computers</strong></p>
+                    <p class="timeline-contributor">Eckert & Mauchly – Built ENIAC</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">1947</div>
+                    <p class="timeline-event"><strong>Invention of the Transistor</strong></p>
+                    <p class="timeline-contributor">Bardeen, Brattain, Shockley – Created transistor</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">1950s</div>
+                    <p class="timeline-event"><strong>Magnetic Core Memory</strong></p>
+                    <p class="timeline-contributor">Jay Forrester – Developed magnetic core memory</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">1956</div>
+                    <p class="timeline-event"><strong>First Commercial Hard Disk Drive</strong></p>
+                    <p class="timeline-contributor">IBM – Released IBM 305 RAMAC</p>
+                </div>
+
+                <!-- Column 1: Miniaturization & Personal Computing -->
+                <div class="timeline-item">
+                    <h3 class="timeline-period">Miniaturization & Personal Computing</h3>
+                    <p style="font-size: 0.9rem; color: var(--gray); margin-bottom: 1rem;">1960s – 1980s</p>
+
+                    <div class="timeline-date">1960s</div>
+                    <p class="timeline-event"><strong>Integrated Circuits Invented</strong></p>
+                    <p class="timeline-contributor">Jack Kilby & Robert Noyce</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">1970</div>
+                    <p class="timeline-event"><strong>Floppy Disk Introduced</strong></p>
+                    <p class="timeline-contributor">IBM – Created portable data storage</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">1971</div>
+                    <p class="timeline-event"><strong>First Microprocessor</strong></p>
+                    <p class="timeline-contributor">Intel – Released Intel 4004</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">1975</div>
+                    <p class="timeline-event"><strong>Altair 8800 Released</strong></p>
+                    <p class="timeline-contributor">Ed Roberts / MITS – Sparked PC revolution</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">1981-1990s</div>
+                    <p class="timeline-event"><strong>IBM PC & Storage Evolution</strong></p>
+                    <p class="timeline-contributor">IBM, Osborne, Grid Systems – PC standardization & laptops</p>
+                </div>
+
+                <!-- Column 2: Networking & Multimedia Expansion -->
+                <div class="timeline-item">
+                    <h3 class="timeline-period">Networking & Multimedia Expansion</h3>
+                    <p style="font-size: 0.9rem; color: var(--gray); margin-bottom: 1rem;">1990s – 2000s</p>
+
+                    <div class="timeline-date">1990s</div>
+                    <p class="timeline-event"><strong>Multimedia & Networking Hardware</strong></p>
+                    <p class="timeline-contributor">Robert Metcalfe – Ethernet; NVIDIA & 3dfx – 3D graphics</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">1995</div>
+                    <p class="timeline-event"><strong>USB Standard Introduced</strong></p>
+                    <p class="timeline-contributor">USB Implementers Forum – Universal peripheral interface</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">2000s</div>
+                    <p class="timeline-event"><strong>Multi-core & SSDs</strong></p>
+                    <p class="timeline-contributor">Intel, AMD – Dual/quad-core CPUs; SSDs mainstream</p>
+                </div>
+
+                <!-- Column 1: Modern & Future Computing -->
+                <div class="timeline-item">
+                    <h3 class="timeline-period">Modern & Future Computing</h3>
+                    <p style="font-size: 0.9rem; color: var(--gray); margin-bottom: 1rem;">2010s – 2020s</p>
+
+                    <div class="timeline-date">2010</div>
+                    <p class="timeline-event"><strong>Cloud Computing Hardware</strong></p>
+                    <p class="timeline-contributor">Google, Amazon, Microsoft – Large-scale server optimization</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">2012</div>
+                    <p class="timeline-event"><strong>GPUs for AI and Gaming</strong></p>
+                    <p class="timeline-contributor">NVIDIA, AMD – AI, gaming, parallel computing</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">2016</div>
+                    <p class="timeline-event"><strong>AI Hardware Accelerators</strong></p>
+                    <p class="timeline-contributor">Google, NVIDIA, AMD – TPU v1 and AI GPUs</p>
+
+                    <div class="timeline-date" style="margin-top: 1rem;">2020-2023</div>
+                    <p class="timeline-event"><strong>Energy-Efficient AI & Quantum</strong></p>
+                    <p class="timeline-contributor">NVIDIA, AMD, Google, IBM, Rigetti, IonQ</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Image Gallery Section -->
+        <section id="gallery">
+            <h2 class="section-title">Historical Images</h2>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="image19.png" alt="ENIAC Computer" style="width: 100%; height: 100%; object-fit: cover;">
+                    <p class="image-caption">Glenn A. Beck and Betty Snyder program ENIAC in BRL building 328 (U.S. Army
+                        photo, c. 1947–1955)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Physical Components Section -->
+        <section id="components">
+            <h2 class="section-title">Physical Components</h2>
+            <p style="margin-bottom: 2rem; font-size: 1rem; line-height: 1.7;">Peripheral devices are external devices
+                connected to a computer that help it input, output, or store data. They are not part of the main
+                computer system (like the CPU, motherboard, or RAM), but they extend its functionality. Peripheral
+                devices are usually plugged in via USB, Bluetooth, HDMI, or other ports, and modern systems often
+                support plug-and-play, automatic driver installation, and hot-swapping.</p>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Input Devices</h3>
+                    <p style="margin-bottom: 1rem;">Allow users to enter data or commands into a computer</p>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 0.5rem; margin-bottom: 1rem;">
+                        <img src="image27.png" alt="Keyboard" style="width: 100%; border-radius: 8px;">
+                        <img src="image24.png" alt="Mouse" style="width: 100%; border-radius: 8px;">
+                        <img src="image25.png" alt="Webcam" style="width: 100%; border-radius: 8px;">
+                        <img src="image26.png" alt="Scanner" style="width: 100%; border-radius: 8px;">
+                        <img src="image29.png" alt="Microphone" style="width: 100%; border-radius: 8px;">
+                    </div>
+                    <ul>
+                        <li><strong>Keyboard:</strong> Allows typing of letters, numbers, and commands; can be standard,
+                            mechanical, or adaptive (e.g., Braille)</li>
+                        <li><strong>Mouse / Trackpad:</strong> Moves a pointer and enables item selection; optical and
+                            laser sensors enhance precision</li>
+                        <li><strong>Webcams / Cameras:</strong> Capture video input for communication, recording, or AI
+                            applications (e.g., facial recognition)</li>
+                        <li><strong>Scanners:</strong> Convert physical documents or images into digital formats</li>
+                        <li><strong>Microphones:</strong> Capture sound and send it to the computer</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Output Devices</h3>
+                    <p style="margin-bottom: 1rem;">Display, project, or produce results from the computer</p>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 0.5rem; margin-bottom: 1rem;">
+                        <img src="image30.png" alt="Monitor" style="width: 100%; border-radius: 8px;">
+                        <img src="image31.png" alt="Printer" style="width: 100%; border-radius: 8px;">
+                        <img src="image32.png" alt="Speakers" style="width: 100%; border-radius: 8px;">
+                        <img src="image33.png" alt="Projector" style="width: 100%; border-radius: 8px;">
+                    </div>
+                    <ul>
+                        <li><strong>Monitors / Displays:</strong> Show visuals, graphics, and text; LCD, LED, OLED; high
+                            refresh rates and resolutions support gaming and professional design</li>
+                        <li><strong>Printers:</strong> Produce physical copies of digital documents; includes inkjet,
+                            laser, and 3D printers</li>
+                        <li><strong>Speakers / Headphones:</strong> Produce sound; high-definition or surround sound for
+                            multimedia</li>
+                        <li><strong>Projectors:</strong> Display large-scale visuals for presentations or classrooms
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Hybrid Devices</h3>
+                    <p style="margin-bottom: 1rem;">Perform both input and output functions</p>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 0.5rem; margin-bottom: 1rem;">
+                        <img src="image34.png" alt="External Storage" style="width: 100%; border-radius: 8px;">
+                        <img src="image35.png" alt="Touchscreen" style="width: 100%; border-radius: 8px;">
+                        <img src="image36.png" alt="Network Adapter" style="width: 100%; border-radius: 8px;">
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <ul>
+                        <li><strong>External Hard Drives / USB Flash Drives / SSDs:</strong> Store and retrieve data
+                        </li>
+                        <li><strong>Touchscreen Monitors:</strong> Display output and accept touch input</li>
+                        <li><strong>Network Cards / Adapters / Modems:</strong> Send and receive data over networks
+                            (Ethernet, Wi-Fi)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Technologies Section -->
+        <section id="technologies">
+            <h2 class="section-title">Current Technologies</h2>
+            <p style="margin-bottom: 2rem; font-size: 1rem; line-height: 1.7;">With the rapid growth of technology,
+                modern computer hardware has evolved to become faster, smaller, more energy-efficient, and more
+                powerful. Current hardware technologies are designed to support high-performance computing, artificial
+                intelligence, cloud systems, and everyday digital activities.</p>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div>
+                        <h3>Central Processing Unit (CPU)</h3>
+                        <div
+                            style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-bottom: 1rem;">
+                            <img src="image39.png" alt="Intel CPU" style="width: 100%; border-radius: 8px;">
+
+                        </div>
+                        <p>The CPU is the brain of the computer, a complex electronic chip that executes program
+                            instructions, performs calculations, and manages data flow.</p>
+                        <ul>
+                            <li>Multi-core architectures enable simultaneous task execution</li>
+                            <li>Advanced nanometer fabrication (5nm and 3nm processes)</li>
+                            <li>Integrated graphics for basic tasks</li>
+                            <li>Hyper-threading and simultaneous multithreading (SMT)</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <p><strong>Examples:</strong></p>
+                        <p>Intel Core i7/i9 (13th–14th Gen) and AMD Ryzen 7/9 series with hybrid architectures</p>
+                        <p>Apple M-series chips (M1, M2, M3) using System on a Chip (SoC) technology</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Graphics Processing Unit (GPU)</h3>
+                        <div
+                            style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-bottom: 1rem;">
+                            <img src="image42.png" alt="NVIDIA GPU" style="width: 100%; border-radius: 8px;">
+
+                        </div>
+                        <p>A specialized electronic circuit designed for digital image processing and to accelerate
+                            computer graphics.</p>
+                        <ul>
+                            <li>Ray Tracing technology for realistic lighting and shadows</li>
+                            <li>Thousands of cores designed for parallel processing</li>
+                            <li>Ideal for heavy mathematical computations</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <p><strong>Examples:</strong></p>
+                        <p>NVIDIA RTX 30 and 40 Series, AMD Radeon RX 6000 and 7000 Series</p>
+                        <p>NVIDIA's Tensor Cores for AI and machine learning applications</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Memory (RAM)</h3>
+                        <br>
+                        <div style="margin-bottom: 1rem;">
+                            <img src="image43.png" alt="RAM Memory"
+                                style="width: 100%; border-radius: 8px; max-width: 400px;">
+                        </div>
+                        <br>
+
+                        <p>High-speed, short-term, temporary storage for data actively being used by the CPU.</p>
+                        <ul>
+                            <li><strong>DDR4:</strong> Fourth generation offering higher speeds (starting around
+                                2133MHz), greater bandwidth, increased power efficiency (1.2V)</li>
+                            <li><strong>DDR5:</strong> Faster data transfer rates, enabling smoother multitasking and
+                                better performance in demanding applications</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Storage Technologies</h3>
+                        <div
+                            style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-bottom: 1rem;">
+                            <img src="image44.png" alt="SSD" style="width: 100%; border-radius: 8px;">
+
+                        </div>
+                        <ul>
+                            <li><strong>Solid State Drives (SSD):</strong> Use flash memory for faster boot times and
+                                improved durability</li>
+                            <li><strong>NVMe SSDs:</strong> Extremely fast data transfer via PCIe lanes</li>
+                            <li><strong>Hybrid Systems:</strong> Combine SSDs and HDDs for balanced performance</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <p><strong>Examples:</strong></p>
+                        <p>Samsung 980 Pro or Western Digital SN850 NVMe SSDs</p>
+                        <p>Cloud-integrated storage combining physical SSDs with cloud backups</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Motherboard and Chipset</h3>
+                        <div
+                            style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-bottom: 1rem;">
+                            <img src="image45.png" alt="Motherboard" style="width: 100%; border-radius: 8px;">
+
+                        </div>
+                        <p>Modern motherboards support faster CPUs, high-speed RAM, and advanced connectivity options.
+                        </p>
+                        <ul>
+                            <li>USB-C, Thunderbolt, and PCIe 5.0 support</li>
+                            <li>Better power management and improved security</li>
+                            <li>Support for overclocking</li>
+                        </ul>
+                    </div>
+                    <div class="content-box">
+                        <p><strong>Features:</strong></p>
+                        <p>Wi-Fi 6 and Wi-Fi 6E built-in for faster wireless connections</p>
+                        <p>Faster data transfer for high-performance components</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Applications Section -->
+        <section id="applications">
+            <h2 class="section-title">Applications</h2>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Education</h3>
+                    <p>Computer hardware supports online learning, virtual classrooms, and digital assessments. Students
+                        use laptops, tablets, and desktop computers to access educational platforms, conduct research,
+                        and complete academic tasks.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Business</h3>
+                    <p>Hardware technologies enable automation, data analytics, and enterprise resource planning (ERP)
+                        systems, improving productivity and decision-making. Secure hardware components also help
+                        protect sensitive business information.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Healthcare</h3>
+                    <p>Computer hardware is used in medical imaging, patient record systems, and diagnostic equipment.
+                        Wearable health devices and IoT-based medical sensors collect real-time patient information,
+                        allowing faster diagnosis and improved patient care.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Engineering & Scientific Research</h3>
+                    <p>Engineers and scientists rely on high-performance computing hardware to perform complex
+                        calculations, simulations, and data analysis in fields ranging from aerospace to quantum
+                        physics.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Entertainment</h3>
+                    <p>Computer hardware powers gaming, film production, music creation, and digital animation. High-end
+                        GPUs and CPUs enable realistic graphics, real-time rendering, and immersive virtual reality
+                        experiences.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Industrial & Manufacturing</h3>
+                    <p>Industries use computer hardware in automation systems, robotics, and quality control.
+                        Programmable logic controllers (PLCs), sensors, and embedded systems monitor and control
+                        industrial processes.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Communication & Networking</h3>
+                    <p>Computer hardware enables global communication through networking devices such as routers,
+                        switches, servers, and data centers. These components support internet connectivity, cloud
+                        computing, and online services.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenges Section -->
+        <section id="challenges">
+            <h2 class="section-title">Challenges in Computer Hardware</h2>
+
+            <div class="cards-grid">
+                <div class="card challenge-card">
+                    <h3>The End of Moore's Law</h3>
+                    <p>For decades, we relied on the idea that transistors would double every two years. Today, we are
+                        hitting a literal physical wall.</p>
+                    <p style="margin-top: 1rem;"><strong>The Issue:</strong> Transistors are now so small—reaching the
+                        2nm and 3nm scale—that quantum tunneling occurs. This means electrons jump across gaps they
+                        shouldn't, causing errors.</p>
+                    <p style="margin-top: 1rem;"><strong>Evidence:</strong> The cost of building a fabrication factory
+                        to make these tiny chips has skyrocketed to over $20 billion, making it economically
+                        unsustainable for most companies (TSMC and Intel).</p>
+                </div>
+
+                <div class="card challenge-card">
+                    <h3> The Power Wall and Thermal Management</h3>
+                    <p>High-performance AI chips generate immense heat, requiring radical new cooling solutions like
+                        microfluidics to prevent hardware failure.</p>
+                    <p style="margin-top: 1rem;"><strong>The Issue:</strong> Chips are getting too hot to handle. When
+                        hardware runs at extreme speeds, it consumes too much energy and produces extreme heat.</p>
+                    <p style="margin-top: 1rem;"><strong>Solution:</strong> Modern data centers for NVIDIA's H100 GPUs
+                        are now shifting to liquid cooling and immersion cooling, where the whole server is literally
+                        dipped in special non-conductive liquid just to stay functional.</p>
+                </div>
+
+                <div class="card challenge-card">
+                    <h3>Memory and Storage Bottleneck</h3>
+                    <p>The Memory Wall presents a significant challenge. Imagine a Ferrari (the CPU) stuck in a traffic
+                        jam (the Memory). No matter how fast the processor is, if the RAM can't feed it data fast
+                        enough, it becomes useless.</p>
+                    <p style="margin-top: 1rem;"><strong>The Gap:</strong> CPU speeds have grown by 50% annually, but
+                        memory latency only improved by 10%.</p>
+                    <p style="margin-top: 1rem;"><strong>Solution:</strong> HBM3 (High Bandwidth Memory) was invented to
+                        stack memory directly on top of the processor, as standard DDR5 RAM is too slow for AI
+                        applications.</p>
+                </div>
+
+                <div class="card challenge-card">
+                    <h3>Specialized Hardware Demands</h3>
+                    <p>The rise of AI, ML, and specific workloads (like graphics) exposes the inefficiency of
+                        general-purpose CPUs, demanding a new paradigm of specialized, domain-specific chips.</p>
+                    <p style="margin-top: 1rem;"><strong>The Shift:</strong> CPUs are 'jacks of all trades' but masters
+                        of none. For AI and Graphics, they are inefficient.</p>
+                    <p style="margin-top: 1rem;"><strong>Example:</strong> Apple moved from Intel to their own M-series
+                        chips. By adding 'Neural Engines' specifically for AI, their laptops became faster and more
+                        energy-efficient than traditional PCs.</p>
+                </div>
+
+                <div class="card challenge-card">
+                    <h3>Hardware-Level Security Threats</h3>
+                    <p>Previously, software was the main security concern. Now, the vulnerability is inside the silicon
+                        itself.</p>
+                    <p style="margin-top: 1rem;"><strong>The Threat:</strong> Hackers are using 'side-channel attacks'
+                        to steal data by monitoring the power consumption or heat of a chip.</p>
+                    <p style="margin-top: 1rem;"><strong>Example:</strong> Vulnerabilities like Spectre and Meltdown
+                        showed that even the way a processor 'predicts' your next move can be exploited to steal
+                        passwords, forcing a total redesign of security architectures.</p>
+                </div>
+
+                <div class="card challenge-card">
+                    <h3> Sustainability and E-Waste</h3>
+                    <p>The rapid pace of hardware replacement creates massive environmental burdens and a need for
+                        sustainable "green" hardware.</p>
+                    <p style="margin-top: 1rem;"><strong>The Problem:</strong> Our 'upgrade culture' is creating a
+                        mountain of trash that the Earth cannot digest. Every year, millions of tons of hardware end up
+                        in landfills, leaking toxic chemicals.</p>
+                    <p style="margin-top: 1rem;"><strong>Solution:</strong> Companies like Framework are creating
+                        'Modular Laptops' where you can replace a single port or the mainboard without throwing the
+                        whole computer away. This is the 'Green Hardware' movement.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future Trends Section -->
+        <section id="future">
+            <h2 class="section-title">Future Trends in Computer Hardware</h2>
+
+            <div class="cards-grid">
+                <div class="card future-card">
+                    <h3>Quantum Computing Integration</h3>
+                    <p>Quantum Computing isn't just a faster computer; it's a completely different way of processing
+                        information using 'qubits'.</p>
+                    <p style="margin-top: 1rem;"><strong>How it Works:</strong> While a classical computer tries every
+                        door one by one to find a key, a Quantum computer can 'exist' in front of all doors at once.</p>
+                    <p style="margin-top: 1rem;"><strong>Achievement:</strong> IBM and Google have already demonstrated
+                        'Quantum Supremacy,' solving problems in minutes that would take today's fastest supercomputer
+                        10,000 years to finish.</p>
+                </div>
+
+                <div class="card future-card">
+                    <h3>Edge AI Accelerators</h3>
+                    <p>Instead of sending your data to the cloud (like Google or OpenAI servers), your device will do
+                        the 'thinking' locally.</p>
+                    <p style="margin-top: 1rem;"><strong>Benefits:</strong> This ensures privacy and speed. Your phone
+                        doesn't need the internet to process your face or voice.</p>
+                    <p style="margin-top: 1rem;"><strong>Example:</strong> The latest Snapdragon and Apple chips have
+                        dedicated NPUs (Neural Processing Units) that allow real-time language translation even when you
+                        are in 'Airplane Mode'.</p>
+                </div>
+
+                <div class="card future-card">
+                    <h3>Chiplet and Modular Design</h3>
+                    <p>Instead of making one giant, expensive chip, we are now 'Lego-fying' hardware. The Chiplet
+                        Revolution breaks chips into smaller components that can be mixed and matched.</p>
+                    <p style="margin-top: 1rem;"><strong>Benefits:</strong> By breaking a chip into smaller 'chiplets,'
+                        you can mix and match different technologies and reduce manufacturing errors.</p>
+                    <p style="margin-top: 1rem;"><strong>Example:</strong> AMD's Ryzen processors combine a 5nm chiplet
+                        for speed with a cheaper 12nm chiplet for simple tasks, making high-performance PCs much more
+                        affordable.</p>
+                </div>
+
+                <div class="card future-card">
+                    <h3>Neuromorphic and Photonic Computing</h3>
+                    <p>Hardware that mimics the human brain's efficiency or uses light (photons) instead of electricity
+                        to move data.</p>
+                    <p style="margin-top: 1rem;"><strong>Advantage:</strong> Electricity produces heat; light (photons)
+                        does not.</p>
+                    <p style="margin-top: 1rem;"><strong>Example:</strong> Intel's 'Loihi' chip is a neuromorphic
+                        processor that 'pulses' like a neuron. It can process data using 1,000 times less energy than a
+                        standard processor, perfect for future robotics.</p>
+                </div>
+
+                <div class="card future-card">
+                    <h3>Next-Gen Materials (SiC/GaN)</h3>
+                    <p>Silicon is retiring. We are moving to next-generation materials like Silicon Carbide (SiC) and
+                        Gallium Nitride (GaN).</p>
+                    <p style="margin-top: 1rem;"><strong>Advantage:</strong> These materials handle high voltage and
+                        heat much better than silicon.</p>
+                    <p style="margin-top: 1rem;"><strong>Example:</strong> Modern phone chargers that are small but
+                        'Fast Chargers' use GaN technology. It allows power bricks to be 50% smaller while charging your
+                        devices twice as fast without melting.</p>
+                </div>
+
+                <div class="card future-card">
+                    <h3>RISC-V and Open Hardware</h3>
+                    <p>A move toward open-source processor designs that allow companies to build custom hardware without
+                        paying massive licensing fees. This is the 'Linux' of hardware—freedom from big tech monopolies.
+                    </p>
+                    <p style="margin-top: 1rem;"><strong>Current Situation:</strong> Companies have to pay huge
+                        royalties to use ARM or Intel designs. RISC-V is an open-source alternative.</p>
+                    <p style="margin-top: 1rem;"><strong>Example:</strong> Many tech giants in China and even NASA are
+                        shifting to RISC-V to design custom chips for space and AI without being tied to a single
+                        Western supplier.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p class="credits">CALUNGSOD | ELEDIA | PRIOL</p>
+        <p>Thank You For Your Attention</p>
+    </footer>
+
+    <script>
+        const revealElements = document.querySelectorAll("section");
+
+        function revealOnScroll() {
+            const windowHeight = window.innerHeight;
+
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 120) {
+                    el.classList.add("reveal", "active");
+                }
+            });
+        }
+
+        // Add reveal class initially
+        revealElements.forEach(el => el.classList.add("reveal"));
+
+        window.addEventListener("scroll", revealOnScroll);
+        revealOnScroll(); // Run on load
+    </script>
+
+</body>
+
+</html>
